@@ -58,7 +58,7 @@ namespace PromoOS
             app.MapPost("/tasks", async (TaskCreateRequest request, AppDbContext db) =>
             {
                 if (string.IsNullOrWhiteSpace(request.Title) || request.Title.Length > 200)
-                    return Results.BadRequest("Заголовок обязателен и должен содержать не более 200 символов.");
+                    return Results.BadRequest("Р’Р°Р»РёРґР°С†РёСЏ РЅР°Р·РІР°РЅРёСЏ Р·Р°РґР°С‡Рё РЅРµ РїСЂРµРІС‹С€Р°РµС‚ 200 СЃРёРјРІРѕР»РѕРІ.");
 
                 var task = new TaskItem
                 {
@@ -95,7 +95,7 @@ namespace PromoOS
                 if (task == null)
                     return Results.NotFound();
                 if (task.IsCompleted)
-                    return Results.Conflict("Task-а уже завершена.");
+                    return Results.Conflict("Р—Р°РґР°С‡Р° СѓР¶Рµ РІС‹РїРѕР»РЅРµРЅР°.");
                 task.IsCompleted = true;
                 task.CompletedAt = DateTimeOffset.UtcNow;
                 try
@@ -106,7 +106,7 @@ namespace PromoOS
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    return Results.Conflict("Task-а была зименена другим запросом.");
+                    return Results.Conflict("Р—Р°РґР°С‡Р° Р±С‹Р»Р° РёР·РјРµРЅРµРЅР° РґСЂСѓРіРёРј РїСЂРѕС†РµСЃСЃРѕРј.");
                 }
             });
 
