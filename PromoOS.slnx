@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PromoOS.Tests/PromoOS.Tests.csproj" />
+  <Project Path="PromoOS/PromoOS.csproj" />
+</Solution>
